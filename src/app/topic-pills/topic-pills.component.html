@@ -1,8 +1,8 @@
-<h3>Topics</h3>
-<ul class="list-group">
-  <li class="list-group-item"
+
+<ul class="nav nav-tabs">
+  <li class="nav-item wbdv-lesson-pill"
       *ngFor="let topic of topics">
-    <a href="/course-viewer/{{courseId}}/modules/{{moduleId}}/lessons/{{lessonId}}/topics/{{topic._id}}">
+    <a class="nav-link" href="/course-viewer/courses/{{courseId}}/modules/{{moduleId}}/lessons/{{lessonId}}/topics/{{topic._id}}">
       {{topic.title}}
     </a>
   </li>

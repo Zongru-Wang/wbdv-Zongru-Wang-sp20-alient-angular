@@ -1,9 +1,9 @@
 
 <ul class="nav nav-tabs">
-  <li class="nav-item"
+  <li class="nav-item wbdv-lesson-pill"
       [class]="{'active': lessonId === lesson._id}"
       *ngFor="let lesson of lessons">
-    <a class="nav-link flex-sm-fill" routerLink="/course-viewer/{{courseId}}/modules/{{moduleId}}/lessons/{{lesson._id}}">
+    <a class="nav-link" routerLink="/course-viewer/courses/{{courseId}}/modules/{{moduleId}}/lessons/{{lesson._id}}/topics">
       {{lesson.title}}
     </a>
   </li>

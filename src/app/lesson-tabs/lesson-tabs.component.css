@@ -1,12 +1,19 @@
-.active a {
-  color: purple;
-}
+
 
 .wbdv-lesson-pill {
-  margin-left: 4%;
+  margin-left: 2%;
+}
+.active a {
+  background-color: cornflowerblue;
 }
 
-.nav-tabs .nav-link {
+a:not(.active) {
   background-color: rgba(0, 0, 250, 0.2);
-
 }
+
+
+/*.nav-tabs .nav-link:active {*/
+/*  background-color: blue;*/
+/*}*/
+
+

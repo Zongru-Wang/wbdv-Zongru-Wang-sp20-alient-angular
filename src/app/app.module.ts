@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CourseListComponent } from './course-list/course-list.component';
+import { CourseTableComponent } from './table/course-table.component';
 import {CourseServiceClient} from './services/CourseServiceClient';
 import {FormsModule} from '@angular/forms';
 import { CourseViewerComponent } from './course-viewer/course-viewer.component';
@@ -22,7 +22,7 @@ import { TopicPillsComponent } from './topic-pills/topic-pills.component';
 @NgModule({
   declarations: [
     AppComponent,
-    CourseListComponent,
+    CourseTableComponent,
     CourseViewerComponent,
     ModuleListComponent,
     LessonTabsComponent,
