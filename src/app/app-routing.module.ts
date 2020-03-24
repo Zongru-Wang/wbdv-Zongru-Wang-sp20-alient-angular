@@ -10,10 +10,10 @@ const routes: Routes = [
   // {path: 'quizzes', component: QuizzesComponent},
   {path: '', redirectTo: '/table/courses', pathMatch: 'full'},
   {path: 'table/courses', component: CourseTableComponent},
-  {path: 'course-viewer/courses/:courseId/modules', component: CourseViewerComponent},
-  {path: 'course-viewer/courses/:courseId/modules/:moduleId/lessons', component: CourseViewerComponent},
-  {path: 'course-viewer/courses/:courseId/modules/:moduleId/lessons/:lessonId/topics', component: CourseViewerComponent},
-  {path: 'course-viewer/courses/:courseId/modules/:moduleId/lessons/:lessonId/topics/:topicId', component: CourseViewerComponent}
+  {path: ':layout/courses/:courseId/modules', component: CourseViewerComponent},
+  {path: ':layout/courses/:courseId/modules/:moduleId/lessons', component: CourseViewerComponent},
+  {path: ':layout/courses/:courseId/modules/:moduleId/lessons/:lessonId/topics', component: CourseViewerComponent},
+  {path: ':layout/courses/:courseId/modules/:moduleId/lessons/:lessonId/topics/:topicId', component: CourseViewerComponent}
 ];
 
 @NgModule({

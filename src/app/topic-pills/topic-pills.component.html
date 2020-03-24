@@ -2,7 +2,7 @@
 <ul class="nav nav-tabs">
   <li class="nav-item wbdv-lesson-pill"
       *ngFor="let topic of topics">
-    <a class="nav-link" href="/course-viewer/courses/{{courseId}}/modules/{{moduleId}}/lessons/{{lessonId}}/topics/{{topic._id}}">
+    <a class="nav-link" href="/:layout/courses/{{courseId}}/modules/{{moduleId}}/lessons/{{lessonId}}/topics/{{topic._id}}">
       {{topic.title}}
     </a>
   </li>

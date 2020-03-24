@@ -3,7 +3,7 @@
   <li *ngFor="let module of modules"
       [class]="{'active': moduleId === module._id}"
       class="list-group-item">
-    <a routerLink="/course-viewer/courses/{{courseId}}/modules/{{module._id}}/lessons">
+    <a routerLink="/:layout/courses/{{courseId}}/modules/{{module._id}}/lessons">
       {{module.title}}
     </a>
   </li>
