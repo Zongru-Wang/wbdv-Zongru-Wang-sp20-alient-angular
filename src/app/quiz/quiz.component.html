@@ -1,0 +1,13 @@
+
+<ul class="list-group">
+  <li *ngFor="let question of questions" class="list-group-item">
+    <div [ngSwitch]="question.type">
+      <app-multiple-choice-question
+        [question]="question"
+        *ngSwitchCase="'MULTIPLE_CHOICE'"></app-multiple-choice-question>
+      <app-truefalsequestion
+        [question]="question"
+        *ngSwitchCase="'TRUE_FALSE'"></app-truefalsequestion>
+    </div>
+  </li>
+</ul>
