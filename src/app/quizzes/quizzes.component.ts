@@ -15,7 +15,6 @@ export class QuizzesComponent implements OnInit {
   }
 
   courseId = '';
-  title = 'Quizzes';
   quizzes = [];
 
   ngOnInit(): void {

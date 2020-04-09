@@ -9,21 +9,17 @@ import {QuestionServiceClient} from '../services/QuestionServiceClient';
 })
 export class QuizComponent implements OnInit {
 
-
   constructor(private route: ActivatedRoute, private service: QuestionServiceClient) { }
 
-  title = 'Quiz'
-  quizId = ''
   questions = []
-
+  quizId = ''
   ngOnInit(): void {
     this.route.params.subscribe(params => {
-      this.quizId = params.qid;
+      this.quizId = params.quizId;
       this.service.findQuestionsForQuiz(this.quizId)
         .then(questions => this.questions = questions);
     });
   }
-
 
 }
 

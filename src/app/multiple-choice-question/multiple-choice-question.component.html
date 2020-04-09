@@ -1,1 +1,42 @@
-{{question.title}}
+
+<h2 class="question-title">
+  {{question.question}}
+
+  <!-- Saw the solution on piazza post from post @1158 and @1132 -->
+  <i class="fas" [ngClass]="{
+        'fa-check':  grading  && answer === question.correct , 'fa-times':  grading && answer !== question.correct }">
+  </i>
+</h2>
+
+
+<div *ngFor="let choice of question.choices">
+  <div class="list-group">
+      <div class="list-group-item" [ngClass]="{
+          'list-group-item-success':
+              grading && question.correct === choice,
+          'list-group-item-danger':
+               grading && choice !== question.correct  && answer === choice
+        }">
+        <input type="radio" [(ngModel)]="answer" value="{{choice}}" name="{{question._id}}"  [disabled]="grading"/>
+        {{choice}}
+        <i class="fa" [ngClass]="{
+            'fa-check':
+              grading && question.correct === choice,
+            'fa-times':
+                grading && choice !== question.correct  && answer === choice
+          }">
+
+        </i>
+      </div>
+  </div>
+</div>
+
+<br />
+<b class="ya">Your answer:</b>
+<br />
+<b class="ya">{{answer}}</b>
+<br />
+<br />
+<button class="btn btn-success" (click)="submitAnswer()">
+  Grade
+</button>

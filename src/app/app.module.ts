@@ -18,6 +18,9 @@ import { QuizComponent } from './quiz/quiz.component';
 import {QuizServiceClient} from './services/QuizServiceClient';
 import { TrueFalseQuestionComponent } from './truefalsequestion/truefalsequestion.component';
 import { MultipleChoiceQuestionComponent } from './multiple-choice-question/multiple-choice-question.component';
+import {QuestionServiceClient} from './services/QuestionServiceClient';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
 
 @NgModule({
   declarations: [
@@ -35,14 +38,16 @@ import { MultipleChoiceQuestionComponent } from './multiple-choice-question/mult
   imports: [
     FormsModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FontAwesomeModule
   ],
   providers: [
     CourseServiceClient,
     ModuleServiceClient,
     LessonServiceClient,
     QuizzesServiceClient,
-    QuizServiceClient
+    QuizServiceClient,
+    QuestionServiceClient
   ],
   bootstrap: [AppComponent]
 })

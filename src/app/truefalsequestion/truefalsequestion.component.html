@@ -1,54 +1,66 @@
-<h3 class="question-title">
+<h2>
   {{question.question}}
-  <i class="fa" [ngClass]="{
-        'fa-check': answer === question.correct && grading,
-        'fa-times': answer !== question.correct && grading}">
+  <i class="fas" [ngClass]="{
+        'fa-check':  grading  && answer === question.correct , 'fa-times':  grading && answer !== question.correct }">
   </i>
-</h3>
+</h2>
 
-<!-- True False options -->
-<ul class="list-group">
-  <label>
-    <li class="list-group-item" [ngClass]="{
-        'list-group-item-success':
-            (answer === question.correct && grading && answer === 'true') ||
-            (answer !== question.correct && grading && answer === 'false'),
+<!-- process true answers -->
+<div class="list-group">
+
+    <div class="list-group-item"
+        [ngClass]="{'list-group-item-success':
+            (  grading &&  answer === 'true' && answer === question.correct  ) ||
+            (  grading &&  answer === 'false' &&  answer !== question.correct),
+
          'list-group-item-danger':
-            answer !== question.correct && grading && answer === 'true'
+           grading && answer === 'true' && answer !== question.correct
       }">
-      <input type="radio" value="true" [(ngModel)]="answer" name="{{question._id}}" />
+
+
+      <!--disable selection if already graded -->
+      <input type="radio" value="true" [(ngModel)]="answer" name="{{question._id}}" [disabled]="grading" />
       True
-      <i class="fa" [ngClass]="{
+      <i class="fas" [ngClass]="{
           'fa-check':
-              (answer === question.correct && grading && answer === 'true')
-              || (answer !== question.correct && grading && answer === 'false'),
+              ( grading && answer === 'true' && answer === question.correct )
+              || ( grading && answer === 'false' && answer !== question.correct ),
           'fa-times':
-              answer !== question.correct && grading && answer === 'true'
+               grading && answer === 'true' && answer !== question.correct
         }"></i>
-    </li>
-  </label>
-</ul>
-<ul class="list-group">
-  <label>
-    <li class="list-group-item" [ngClass]="{
+    </div>
+
+</div>
+
+<!-- process false answers -->
+<div class="list-group">
+
+    <div class="list-group-item" [ngClass]="{
         'list-group-item-success':
-            (answer === question.correct && grading && answer === 'false')
-            || (answer !== question.correct && grading && answer === 'true'),
+            ( grading && answer === 'true' && answer !== question.correct )   ||
+            ( grading && answer === 'false' && answer === question.correct ),
          'list-group-item-danger':
-            answer !== question.correct && grading && answer === 'false'
+            grading && answer === 'false' &&  answer !== question.correct
       }">
-      <input type="radio" value="false" [(ngModel)]="answer" name="{{question._id}}" />
+      <input type="radio" value="false" [(ngModel)]="answer" name="{{question._id}}" [disabled]="grading" />
+
+
       False
-      <i class="fa" [ngClass]="{
+      
+      <i class="fas" [ngClass]="{
           'fa-check':
-              (answer === question.correct && grading && answer === 'false')
-              || (answer !== question.correct && grading && answer === 'true'),
+         ( grading && answer === 'true' && answer !== question.correct )   ||
+              ( grading && answer === 'false' && answer === question.correct ),
           'fa-times':
-              answer !== question.correct && grading && answer === 'false'
+              grading && answer === 'false' && answer !== question.correct
         }"></i>
-    </li>
-  </label>
-</ul>
+    </div>
+
+</div>
+
+
+
+
 
 <br />
 <b class="ya">Your answer:</b>
@@ -56,6 +68,6 @@
 <b class="ya">{{answer}}</b>
 <br />
 <br />
-<button class="btn btn-success" (click)="grade()">
+<button class="btn btn-success" (click)="submitAnswer()">
   Grade
 </button>
